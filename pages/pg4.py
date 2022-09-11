@@ -16,7 +16,7 @@ cpsr=cpsr.dropna()
 # cznl=cznl.iloc[:,[0,1,2,3,4,5,6]]
 # yynl=yynl.iloc[:,[0,1,2,3,4,5,6]]
 # cznl=cznl.dropna(axis=0)
-dash.register_page(__name__, name='Revenue Source Analysis')
+dash.register_page(__name__, name='Revenue Sources Analysis')
 
 #page4
 title_p4 = html.H2(children='',style={'color': 'black', 'fontSize':30})
