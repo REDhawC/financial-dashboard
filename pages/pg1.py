@@ -60,8 +60,12 @@ def get_pie_top10holders():
         figure=fig)])
 
 def get_dailyprice():
-    df= pro.daily(ts_code='000068.SZ', start_date=getYesterday(wd_t), end_date=td1)
-    df1=df.iloc[[0],[1,2,3,4,5,6]]
+    try:
+        df= pro.daily(ts_code='000068.SZ', start_date=getYesterday(wd_t,td1), end_date=td1)
+        df1=df.iloc[[0],[1,2,3,4,5,6]]
+    except:
+        df= pro.daily(ts_code='000068.SZ', start_date=firstday, end_date=td1)
+        df1=df.iloc[[0],[1,2,3,4,5,6]]
     return dash_table.DataTable(
     data=df1.to_dict('records'),
     columns=[{'id': c, 'name': c} for c in df1.columns],
